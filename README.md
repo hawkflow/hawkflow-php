@@ -1,3 +1,5 @@
+Inspiration: https://github.com/PostHog/posthog-php
+
 # hawkflow-php
 
 ## Installation
@@ -13,3 +15,4 @@ In your app, set your API key before making any calls.
 ```
 HawkFlow::init("YOUR_API_KEY");
 ```
+
