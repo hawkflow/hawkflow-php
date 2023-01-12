@@ -4,9 +4,9 @@
 
 ## Monitoring for anyone that writes code
 
-Install the pip package
+Install the package
 
-`pip install hawkflow`
+`coming soon`
 
 Read the docs
 
