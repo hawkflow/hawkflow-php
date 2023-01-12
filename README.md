@@ -1,18 +1,17 @@
-Inspiration: https://github.com/PostHog/posthog-php
+![HawkFLow.ai](https://hawkflow.ai/static/images/emails/bars.png)
 
-# hawkflow-php
+# HawkFlow.ai
 
-## Installation
+## Monitoring for anyone that writes code
 
-Run:
+Install the pip package
 
-```
-composer require hawkflow/hawkflow-php
-```
+`pip install hawkflow`
 
-In your app, set your API key before making any calls.
+Read the docs
 
-```
-HawkFlow::init("YOUR_API_KEY");
-```
+[Click here for HawkFlow.ai documentation](http://docs.hawkflow.ai/)
 
+## What is HawkFlow.ai?
+
+HawkFlow.ai is a new monitoring platform that makes it easier than ever to make monitoring part of your development process. Whether you are an Engineer, a Data Scientist, an Analyst, or anyone else that writes code, HawkFlow.ai helps you and your team take ownership of monitoring.
