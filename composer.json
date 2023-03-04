@@ -1,0 +1,49 @@
+{
+  "name": "hawkflow/hawkflow-php",
+  "description": "HawkFlow.ai",
+  "license": "MIT",
+  "type": "library",
+  "readme": "README.md",
+  "keywords": [
+    "hawkflow",
+    "hawkflowclient",
+    "monitoring"
+  ],
+  "authors": [
+    {
+      "name": "HawkFlow.ai",
+      "homepage": "https://hawkflow.ai/",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://hawkflow.ai/",
+  "support": {
+    "docs": "https://docs.hawkflow.ai/"
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0 || ^7.0 || ^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "HawkFlow\\HawkFlow\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "HawkFlow\\HawkFlow\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
+}
+
