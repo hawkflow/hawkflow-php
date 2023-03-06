@@ -22,11 +22,11 @@ class HawkFlowTest extends TestCase
             'content' => '{"process":"process_name","meta":"meta data","uid":"uid"}',
         ];
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient(['HTTP/1.2 201 Created', 'Content-Type: application/json'], $body);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->start($process, $meta, $uid);
+        $apiResponse = $hf->start($process, $meta, $uid);
 
         $this->assertSame(1, $mockClient->callCount);
         $this->assertSame($expectedCallData, $mockClient->callData);
@@ -42,11 +42,11 @@ class HawkFlowTest extends TestCase
         $meta = '';
         $uid = '';
 
-        $hawkFlow = new HawkFlow($apiKey, $retryCount);
+        $hf = new HawkFlow($apiKey, $retryCount);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->start($process, $meta, $uid);
+        $apiResponse = $hf->start($process, $meta, $uid);
 
         $this->assertSame($retryCount, $mockClient->callCount);
         $this->assertSame('Connection failed permanently Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
@@ -60,11 +60,11 @@ class HawkFlowTest extends TestCase
         $meta = '';
         $uid = '';
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->start($process, $meta, $uid);
+        $apiResponse = $hf->start($process, $meta, $uid);
 
         $this->assertSame('Invalid API Key format. Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
     }
@@ -83,11 +83,11 @@ class HawkFlowTest extends TestCase
             'content' => '{"process":"process_name","meta":"meta data","uid":"uid"}',
         ];
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient(['HTTP/1.2 201 Created', 'Content-Type: application/json'], $body);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->end($process, $meta, $uid);
+        $apiResponse = $hf->end($process, $meta, $uid);
 
         $this->assertSame(1, $mockClient->callCount);
         $this->assertSame($expectedCallData, $mockClient->callData);
@@ -103,11 +103,11 @@ class HawkFlowTest extends TestCase
         $meta = '';
         $uid = '';
 
-        $hawkFlow = new HawkFlow($apiKey, $retryCount);
+        $hf = new HawkFlow($apiKey, $retryCount);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->end($process, $meta, $uid);
+        $apiResponse = $hf->end($process, $meta, $uid);
 
         $this->assertSame($retryCount, $mockClient->callCount);
         $this->assertSame('Connection failed permanently Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
@@ -121,11 +121,11 @@ class HawkFlowTest extends TestCase
         $meta = '';
         $uid = '';
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->end($process, $meta, $uid);
+        $apiResponse = $hf->end($process, $meta, $uid);
 
         $this->assertSame('Invalid API Key format. Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
     }
@@ -144,11 +144,11 @@ class HawkFlowTest extends TestCase
             'content' => '{"message":"exception message","process":"process_name","meta":"meta data"}',
         ];
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient(['HTTP/1.2 201 Created', 'Content-Type: application/json'], $body);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->exception($message, $process, $meta);
+        $apiResponse = $hf->exception($message, $process, $meta);
 
         $this->assertSame(1, $mockClient->callCount);
         $this->assertSame($expectedCallData, $mockClient->callData);
@@ -164,11 +164,11 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = '';
 
-        $hawkFlow = new HawkFlow($apiKey, $retryCount);
+        $hf = new HawkFlow($apiKey, $retryCount);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->exception($message, $process, $meta);
+        $apiResponse = $hf->exception($message, $process, $meta);
 
         $this->assertSame($retryCount, $mockClient->callCount);
         $this->assertSame('Connection failed permanently Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
@@ -182,11 +182,11 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = '';
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->exception($message, $process, $meta);
+        $apiResponse = $hf->exception($message, $process, $meta);
 
         $this->assertSame('Invalid API Key format. Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
     }
@@ -205,11 +205,11 @@ class HawkFlowTest extends TestCase
             'content' => '{"items":{"key":123,"a":45.67},"process":"process_name","meta":"meta data"}',
         ];
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient(['HTTP/1.2 201 Created', 'Content-Type: application/json'], $body);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->metrics($items, $process, $meta);
+        $apiResponse = $hf->metrics($items, $process, $meta);
 
         $this->assertSame(1, $mockClient->callCount);
         $this->assertSame($expectedCallData, $mockClient->callData);
@@ -225,11 +225,11 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = '';
 
-        $hawkFlow = new HawkFlow($apiKey, $retryCount);
+        $hf = new HawkFlow($apiKey, $retryCount);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->metrics($items, $process, $meta);
+        $apiResponse = $hf->metrics($items, $process, $meta);
 
         $this->assertSame($retryCount, $mockClient->callCount);
         $this->assertSame('Connection failed permanently Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
@@ -243,11 +243,11 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = '';
 
-        $hawkFlow = new HawkFlow($apiKey);
+        $hf = new HawkFlow($apiKey);
         $mockClient = new MockClient([], '', false);
-        $hawkFlow->client = $mockClient;
+        $hf->client = $mockClient;
 
-        $apiResponse = $hawkFlow->metrics($items, $process, $meta);
+        $apiResponse = $hf->metrics($items, $process, $meta);
 
         $this->assertSame('Invalid API Key format. Please see documentation at https://docs.hawkflow.ai/integration/index.html', $apiResponse);
     }
