@@ -43,7 +43,7 @@ class Request
         Validation::validateException($message, $process, $meta);
 
         $data = [
-            'message' => $message,
+            'exception' => $message,
             'process' => $process,
         ];
         if ( ! empty($meta)) {

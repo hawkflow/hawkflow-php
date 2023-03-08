@@ -90,7 +90,7 @@ class RequestTest extends TestCase
         $meta = '';
 
         $data = Request::exceptionData($message, $process, $meta);
-        $this->assertSame(['message' => 'exception message', 'process' => 'process_name'], $data);
+        $this->assertSame(['exception' => 'exception message', 'process' => 'process_name'], $data);
     }
 
     /** @test */
@@ -101,7 +101,7 @@ class RequestTest extends TestCase
         $meta = 'meta_data';
 
         $data = Request::exceptionData($message, $process, $meta);
-        $this->assertSame(['message' => 'exception message', 'process' => 'process_name', 'meta' => 'meta_data'], $data);
+        $this->assertSame(['exception' => 'exception message', 'process' => 'process_name', 'meta' => 'meta_data'], $data);
     }
 
     /** @test */
@@ -112,7 +112,7 @@ class RequestTest extends TestCase
         $meta = '';
 
         $data = Request::exceptionData($message, $process, $meta);
-        $this->assertSame(['message' => '', 'process' => 'process_name'], $data);
+        $this->assertSame(['exception' => '', 'process' => 'process_name'], $data);
     }
 
     /** @test */

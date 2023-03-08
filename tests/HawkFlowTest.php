@@ -15,7 +15,7 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = 'meta data';
         $uid = 'uid';
-        $body = '{"status":201,"message":"created"}';
+        $body = '{"status":201,"exception":"created"}';
         $expectedCallData = [
             'url' => 'https://api.hawkflow.ai/v1/start',
             'apiKey' => $apiKey,
@@ -76,7 +76,7 @@ class HawkFlowTest extends TestCase
         $process = 'process_name';
         $meta = 'meta data';
         $uid = 'uid';
-        $body = '{"status":201,"message":"created"}';
+        $body = '{"status":201,"exception":"created"}';
         $expectedCallData = [
             'url' => 'https://api.hawkflow.ai/v1/end',
             'apiKey' => $apiKey,
@@ -137,11 +137,11 @@ class HawkFlowTest extends TestCase
         $message = 'exception message';
         $process = 'process_name';
         $meta = 'meta data';
-        $body = '{"status":201,"message":"created"}';
+        $body = '{"status":201,"exception":"created"}';
         $expectedCallData = [
             'url' => 'https://api.hawkflow.ai/v1/exception',
             'apiKey' => $apiKey,
-            'content' => '{"message":"exception message","process":"process_name","meta":"meta data"}',
+            'content' => '{"exception":"exception message","process":"process_name","meta":"meta data"}',
         ];
 
         $hf = new HawkFlow($apiKey);
@@ -198,7 +198,7 @@ class HawkFlowTest extends TestCase
         $items = ['key' => 123, 'a' => 45.67];
         $process = 'process_name';
         $meta = 'meta data';
-        $body = '{"status":201,"message":"created"}';
+        $body = '{"status":201,"exception":"created"}';
         $expectedCallData = [
             'url' => 'https://api.hawkflow.ai/v1/metrics',
             'apiKey' => $apiKey,
